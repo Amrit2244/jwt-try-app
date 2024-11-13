@@ -2,11 +2,11 @@ import { validateEmail } from '@/helper/validateEmail';
 import { validatePassword } from '@/helper/validatePassword';
 import { User } from '@/models/user';
 import bcrypt from 'bcryptjs';
-import { Dbconnect } from '@/config/connectDB';
+import { connectDB } from '@/config/connectDB';
 
 
 export async function POST(request: Request) {
-    await Dbconnect(); // Ensure DB connection before proceeding
+    await connectDB(); // Ensure DB connection before proceeding
 
     try {
         const body = await request.json();
